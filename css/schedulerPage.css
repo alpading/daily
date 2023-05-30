@@ -1,0 +1,264 @@
+@font-face {
+    font-family: 'GoyangIlsan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'GoyangIlsan';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fadcdb;
+    width: 100%;
+}
+#title{
+    margin-top: 20px;
+    font-size: 35px;
+    color: #5e5151;
+}
+#topNav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#yearBox{
+    display: flex;
+    align-items: center;
+    margin: 0px 100px;
+}
+
+.topButtons{
+    width: 30px;
+    height: 30px;
+}
+#year{
+    margin: 0px 10px;
+    font-size: 36px;
+    color: #5e5151;
+}
+#monthBox{
+    display: flex;
+    align-items: center;
+    margin: 0px 100px;
+}
+#downButton{
+    z-index: 1;
+}
+#month{
+    margin: 0px 10px;
+    font-size: 36px;
+    color: #5e5151;
+    z-index: 1;
+}
+#monthNav{
+    position: absolute;
+    width: 120px;
+    background-color: #ffedf1;
+    border: 2px solid #5e5151;
+    border-radius: 10px;
+    top: 80px;
+    padding-top: 60px;
+    display: none;
+}
+#monthList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.months{
+    margin : 5px 0px;
+    font-size: 20px;
+
+}
+#tempBox{
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+}
+#addScheduleButton{
+    font-size: 24px;
+}
+
+#menuButton{
+    width: 55px;
+    position: fixed;
+    /* display: none; */
+    right: 12px;
+    top: 20px;
+    margin: 10px;
+}
+#rightNav{
+    margin: 10px 10px;
+    width: 230px;
+    position: fixed;
+    right: 0;
+    border: 3px solid #5e5151;
+    border-radius: 10px;
+    background-color: #ffedf1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+#navMenuButton{
+    width: 55px;
+    position: fixed;
+    /* display: none; */
+    right: 12px;
+    top: 20px;
+    margin: 10px;
+}
+#profileBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    font-size: 20px;
+    background-color: white;
+    width: 90%;
+    border: 2px solid #5e5151;
+    border-radius: 10px;
+}
+.profileItems{
+    margin-top: 5px;
+}
+#modifyProfileButton{
+    margin-top: 30px;
+    font-size: 18px;
+    color: #5e5151;
+}
+#logoutButton{
+    margin: 5px 0px;
+    font-size: 18px;
+    color: #5e5151;
+}
+#listBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding-top: 5px;
+    font-size: 20px;
+    background-color: white;
+    width: 90%;
+    border: 2px solid #5e5151;
+    border-radius: 10px;
+}
+.list{
+    margin: 10px 0px;
+}
+
+#schedulerBox{
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 80%;
+    border: 4px solid #5e5151;
+    border-radius: 10px;
+    color : #5e5151;
+    font-size: 20px;
+    height: 1000px;
+}
+.dateNum{
+    padding-left: 20px;
+    margin: 10px 0px;
+    font-size: 22px;
+}
+#scheduleDay1{
+    width: 90%;
+}
+#schedule1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#scheduleLeftBox{
+    margin-left: 8px;
+    display: flex;
+}
+#scheduleRightBox{
+    display: flex;
+}
+.scheduleItems{
+    margin-right:10px;
+}
+#line{
+    margin: 10px 0px;
+    width: 100%;
+    border-bottom: 2px solid #5e5151;
+}
+
+#addScheduleBox{
+    position: fixed;
+    top: 200px;
+    left: auto;
+    width: 600px;
+    border: 2px solid#5e5151;
+    border-radius: 15px;
+    background-color: #ffedf1;
+    padding: 20px;
+    font-size: 24px;
+    display: none;
+}
+.scheduleNameBox{
+    display: flex;
+    justify-content: space-between;
+}
+.scheduleNameLeftBox{
+    display: flex;
+    align-items: center;
+}
+.scheduleName{
+    width: 200px;
+    height: 35px;
+    border: 2px solid #5e5151;
+    margin-left: 15px;
+    font-size: 24px;
+}
+.x{
+    height: 20px;
+}
+.scheduleDateTimeBox{
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    
+}
+.dateTime{
+    margin-left: 15px;
+    height: 28px;
+}
+#addScheduleBoxButton{
+    background-color: #eb9f9f;
+    padding: 5px;
+    border: 2px solid #5e5151;
+}
+.scheduleDateTimeRightBox{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#modifyScheduleBox{
+    position: fixed;
+    top: 200px;
+    left: auto;
+    width: 600px;
+    border: 2px solid#5e5151;
+    border-radius: 15px;
+    background-color: #ffedf1;
+    padding: 20px;
+    font-size: 24px;
+    display: none;
+}
+#modifyScheduleBoxButton{
+    background-color: #eb9f9f;
+    padding: 5px;
+    border: 2px solid #5e5151;
+}

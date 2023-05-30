@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'GoyangIlsan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'GoyangIlsan';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fadcdb;
+    width: 100%;
+}
+#title{
+    margin-top: 180px;
+    font-size: 60px;
+    color: #5e5151;
+}
+#loginBox{
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 550px;
+    border: 4px solid #5e5151;
+    border-radius: 10px;
+    color : #5e5151;
+    font-size: 24px;
+}
+.loginBoxItems{
+    width: 80%;
+    margin: 10px 0px;
+}
+#loginButton{
+    padding: 5px 0px;
+    text-align: center;
+    background-color: #eb9f9f;
+}
+#signupButton{
+    padding: 5px 0px;
+    text-align: center;
+    background-color: #eb9f9f;
+}
+.inputs{
+    width: 100%;
+    height: 40px;
+    margin: 5px 0px;
+    background-color: #f0e5df ;
+    border: none;
+    font-size: 24px;
+}
+#findButtons{
+    display: flex;
+    justify-content: space-between;
+}
