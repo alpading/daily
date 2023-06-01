@@ -10,24 +10,30 @@ function menuButtonEvent(){
     document.getElementById("menuButton").style.display = "none";
     document.getElementById("rightNav").style.display = "flex";
 }
+
 function navMenuButtonEvent(){
     document.getElementById("menuButton").style.display = "block";
     document.getElementById("rightNav").style.display = "none";
 }
+
 function modifyProfileButtonEvent(){
     location = "modifyProfilePage.jsp"
 }
+
 function logoutEvent(){
     location = "../index.jsp"
 }
+
 function leftButtonEvent(){
     year--;
     document.getElementById("year").innerHTML = year;
 }
+
 function rightButtonEvent(){
     year++;
     document.getElementById("year").innerHTML = year;
 }
+
 function downButtonEvent(){
     if(monthNav == 0){
         document.getElementById("monthNav").style.display = "block"
@@ -40,6 +46,7 @@ function downButtonEvent(){
         monthNav = 0;
     }
 }
+
 function selectMonthEvent(num){
     console.log(num)
     var chosen = document.getElementById("month" + num);
@@ -53,15 +60,19 @@ function selectMonthEvent(num){
 function openAddScheduleEvent(){
     document.getElementById("addScheduleBox").style.display = "block";
 }
+
 function closeAddScheduleEvent(){
     document.getElementById("addScheduleBox").style.display = "none";
 }
+
 function openModifyScheduleEvent(){
     document.getElementById("modifyScheduleBox").style.display = "block";
 }
+
 function closeModifyScheduleEvent(){
     document.getElementById("modifyScheduleBox").style.display = "none";
 }
+
 function addScheduleEvent(){
     var scheduleName = document.getElementById("addScheduleName").value;
     var scheduleDate = document.getElementById("addScheduleDate").value;
@@ -79,6 +90,7 @@ function addScheduleEvent(){
         alert("일정이 추가되었습니다");
     }
 }
+
 function modifyScheduleEvent(){
     var scheduleName = document.getElementById("modifyScheduleName").value;
     var scheduleTime = document.getElementById("modifyScheduleTime").value;
@@ -95,12 +107,14 @@ function modifyScheduleEvent(){
         alert("일정이 수정되었습니다")
     }
 }
+
 function deleteScheduleButtonEvent(){
     var result = confirm("정말 삭제하시겠습니까?")
     if(result){
         alert("일정이 삭제되었습니다")
     }
 }
+
 function staffSchedulerEvent(name){
     document.getElementById("title").innerHTML = name + "'s SCHEDULES";
     document.getElementById("addScheduleButton").style.display = "none";
@@ -144,6 +158,7 @@ function createMonth(){
     }
     document.getElementById("month1").style.color = "#eb9f9f";
 }
+
 function createList(){
     for(var index = 0; index < leaderArr.length; index++)
     {
@@ -166,5 +181,6 @@ function createList(){
         document.getElementById("staffList").appendChild(leader);
     }
 }
+
 createMonth();
 createList();

@@ -11,10 +11,11 @@ function nameConstraintsEvent(){
         checkName = 0;
     }
     else{
-    constraints.innerHTML = "";
-    checkName = 1;
+        constraints.innerHTML = "";
+        checkName = 1;
     }
 }
+
 function idConstraintsEvent(){
     var id = document.getElementById("id").value;
     var constraints = document.getElementById("idConstraints");
@@ -42,6 +43,7 @@ function idConstraintsEvent(){
         checkId = 1;
     }
 }
+
 function idCheckEvent(){
     if(checkId == 0){
         alert("올바른 아이디를 입력하세요")
@@ -53,6 +55,7 @@ function idCheckEvent(){
         document.getElementById("idConstraints").style.color = "blue";
     }
 }
+
 function pwConstraintsEvent(){
     var pw = document.getElementById("pw").value;
     var constraints = document.getElementById("pwConstraints");
@@ -81,6 +84,7 @@ function pwConstraintsEvent(){
         checkPw = 1;
     }
 }
+
 function pwCheckEvent(){
     var pw1 = document.getElementById("pw").value;
     var pw2 = document.getElementById("pwCheck").value;
@@ -98,6 +102,7 @@ function pwCheckEvent(){
         checkPwCheck = 0;
     }
 }
+
 function phoneConstraintEvent(){
     var phone = document.getElementById("phone").value;
     var constraints = document.getElementById("phoneConstraints");
@@ -120,6 +125,7 @@ function phoneConstraintEvent(){
         checkPhone = 1;
     }
 }
+
 function managerButtonEvent(){
     document.getElementById("managerButton").style.border = "2px solid #5e5151"
     document.getElementById("managerButton").style.backgroundColor = "#eb9f9f"
@@ -131,6 +137,7 @@ function managerButtonEvent(){
     document.getElementById("staffButton").style.backgroundColor = "#f0e5df"
     checkPosition = 1;
 }
+
 function leaderButtonEvent(){
     document.getElementById("managerButton").style.border = "none"
     document.getElementById("managerButton").style.backgroundColor = "#f0e5df"
@@ -142,6 +149,7 @@ function leaderButtonEvent(){
     document.getElementById("staffButton").style.backgroundColor = "#f0e5df"
     checkPosition = 1;
 }
+
 function staffButtonEvent(){
     document.getElementById("managerButton").style.border = "none"
     document.getElementById("managerButton").style.backgroundColor = "#f0e5df"
@@ -153,9 +161,11 @@ function staffButtonEvent(){
     document.getElementById("staffButton").style.backgroundColor = "#eb9f9f"
     checkPosition = 1;
 }
+
 function loginButtonEvent(){
     location = "../index.jsp";
 }
+
 function signupButtonEvent(){
     console.log(checkPosition);
     if(checkName*checkId*checkPw*checkPwCheck*checkPhone*checkPosition == 0){
