@@ -21,7 +21,7 @@
                 <div id = "idConstraints" class = "constraints"></div>
             </div> 
             <div id = "idBottomItem"> 
-                <input type = "text" placeholder="영어 소문자, 숫자 포함 6 ~ 10자" class = inputs id = "id" onchange="idConstraintsEvent()">
+                <input type = "text" placeholder="영어 소문자, 숫자 포함 6 ~ 10자" class = inputs id = "id" oninput="idConstraintsEvent()">
             </div>
         </div>
         <div id = "nameBox" class = "findPwBoxItems">
@@ -29,14 +29,14 @@
                 <div>이름</div>
                 <div id = "nameConstraints" class = "constraints"></div>
             </div> 
-            <input type = "text" placeholder="10자 이내" class = inputs id = "name" onchange="nameConstraintsEvent()">
+            <input type = "text" placeholder="한글이나 영어 2 ~ 10자" class = inputs id = "name" oninput="nameConstraintsEvent()">
         </div>
         <div id = "phoneBox" class = "findPwBoxItems">
             <div class = "constraintsBox">
                 <div>전화번호</div>
                 <div id = "phoneConstraints" class = "constraints"></div>
             </div>
-            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" onchange="phoneConstraintEvent()">
+            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" oninput="phoneConstraintEvent()">
         </div>
         <div id = "bottomButtons" class = "findPwBoxItems">
             <div id = "backButton" onclick = "backButtonEvent()">
@@ -48,6 +48,6 @@
     </form>
 
     <script src = "../js/common.js"></script>
-    <script src = "../js/findPwPage.js"></script>
+    <script src = "../js/findPwPage.js?s"></script>
 </body>
 </html>

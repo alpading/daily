@@ -4,7 +4,7 @@
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "../css/findIdPage.css?s">
+    <link rel = "stylesheet" type = "text/css" href = "../css/findIdPage.css?">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,14 +20,14 @@
                 <div>이름</div>
                 <div id = "nameConstraints" class = "constraints"></div>
             </div> 
-            <input type = "text" placeholder="10자 이내" class = inputs id = "name" onchange="nameConstraintsEvent()">
+            <input type = "text" placeholder="한글이나 영어 2 ~ 10자" class = inputs id = "name" oninput="nameConstraintsEvent()">
         </div>
         <div id = "phoneBox" class = "findIdBoxItems">
             <div class = "constraintsBox">
                 <div>전화번호</div>
                 <div id = "phoneConstraints" class = "constraints"></div>
             </div>
-            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" onchange="phoneConstraintEvent()">
+            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" oninput="phoneConstraintEvent()">
         </div>
         <div id = "resultBox" class = "findIdBoxItems"></div>   
         <div id = "bottomButtons" class = "findIdBoxItems">
@@ -40,6 +40,6 @@
     </form>
 
     <script src = "../js/common.js"></script>
-    <script src = "../js/findIdPage.js"></script>
+    <script src = "../js/findIdPage.js?s"></script>
 </body>
 </html>

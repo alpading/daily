@@ -1,7 +1,7 @@
 #title{
     margin-top: 20px;
     font-size: 35px;
-    color: #5e5151;
+    color: var(--font-color);
 }
 #topNav{
     width: 100%;
@@ -21,7 +21,7 @@
 #year{
     margin: 0px 10px;
     font-size: 36px;
-    color: #5e5151;
+    color: var(--font-color);
 }
 #monthBox{
     display: flex;
@@ -34,14 +34,14 @@
 #month{
     margin: 0px 10px;
     font-size: 36px;
-    color: #5e5151;
+    color: var(--font-color);
     z-index: 1;
 }
 #monthNav{
     position: absolute;
     width: 120px;
     background-color: #ffedf1;
-    border: 2px solid #5e5151;
+    border: 2px solid var(--font-color);
     border-radius: 10px;
     top: 80px;
     padding-top: 60px;
@@ -80,7 +80,7 @@
     width: 230px;
     position: fixed;
     right: 0;
-    border: 3px solid #5e5151;
+    border: 3px solid var(--font-color);
     border-radius: 10px;
     background-color: #ffedf1;
     display: none;
@@ -103,7 +103,7 @@
     font-size: 20px;
     background-color: white;
     width: 90%;
-    border: 2px solid #5e5151;
+    border: 2px solid var(--font-color);
     border-radius: 10px;
 }
 .profileItems{
@@ -112,12 +112,12 @@
 #modifyProfileButton{
     margin-top: 30px;
     font-size: 18px;
-    color: #5e5151;
+    color: var(--font-color);
 }
 #logoutButton{
     margin: 5px 0px;
     font-size: 18px;
-    color: #5e5151;
+    color: var(--font-color);
 }
 #listBox{
     display: flex;
@@ -128,7 +128,7 @@
     font-size: 20px;
     background-color: white;
     width: 90%;
-    border: 2px solid #5e5151;
+    border: 2px solid var(--font-color);
     border-radius: 10px;
 }
 .list{
@@ -142,9 +142,9 @@
     align-items: center;
     background-color: white;
     width: 80%;
-    border: 4px solid #5e5151;
+    border: 4px solid var(--font-color);
     border-radius: 10px;
-    color : #5e5151;
+    color : var(--font-color);
     font-size: 20px;
     height: 1000px;
 }
@@ -174,7 +174,7 @@
 #line{
     margin: 10px 0px;
     width: 100%;
-    border-bottom: 2px solid #5e5151;
+    border-bottom: 2px solid var(--font-color);
 }
 
 #addScheduleBox{
@@ -182,7 +182,7 @@
     top: 200px;
     left: auto;
     width: 600px;
-    border: 2px solid#5e5151;
+    border: 2px solidvar(--font-color);
     border-radius: 15px;
     background-color: #ffedf1;
     padding: 20px;
@@ -200,7 +200,7 @@
 .scheduleName{
     width: 200px;
     height: 35px;
-    border: 2px solid #5e5151;
+    border: 2px solid var(--font-color);
     margin-left: 15px;
     font-size: 24px;
 }
@@ -219,9 +219,9 @@
     height: 28px;
 }
 #addScheduleBoxButton{
-    background-color: #eb9f9f;
+    background-color: var(--button-color);
     padding: 5px;
-    border: 2px solid #5e5151;
+    border: 2px solid var(--font-color);
 }
 .scheduleDateTimeRightBox{
     flex-grow: 1;
@@ -235,7 +235,7 @@
     top: 200px;
     left: auto;
     width: 600px;
-    border: 2px solid#5e5151;
+    border: 2px solidvar(--font-color);
     border-radius: 15px;
     background-color: #ffedf1;
     padding: 20px;
@@ -243,7 +243,7 @@
     display: none;
 }
 #modifyScheduleBoxButton{
-    background-color: #eb9f9f;
+    background-color: var(--button-color);
     padding: 5px;
-    border: 2px solid #5e5151;
+    border: 2px solid var(--font-color);
 }

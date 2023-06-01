@@ -1,5 +1,5 @@
-var year = 2023
-var month = 1;
+var year = new Date().getFullYear();
+var month = new Date().getMonth();
 var monthNav = 0;
 var scheduleLength = 10;
 var mySchedulerCheck = 0;
@@ -87,7 +87,6 @@ function addScheduleEvent(){
     }
     else{
         closeAddScheduleEvent();
-        alert("일정이 추가되었습니다");
     }
 }
 
@@ -104,7 +103,6 @@ function modifyScheduleEvent(){
     }
     else{
         closeModifyScheduleEvent();
-        alert("일정이 수정되었습니다")
     }
 }
 
@@ -184,3 +182,5 @@ function createList(){
 
 createMonth();
 createList();
+selectMonthEvent(month);
+document.getElementById("year").innerHTML = year;

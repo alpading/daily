@@ -3,6 +3,7 @@ var checkName = 0, checkPhone = 0;
 function cancleButtonEvent(){
     location = "schedulerPage.jsp"
 }
+
 function modifyProfileButtonEvent(){
     if(checkName*checkPhone == 0)
     {
@@ -13,19 +14,28 @@ function modifyProfileButtonEvent(){
     location = "schedulerPage.jsp"
     }
 }
+
 function nameConstraintsEvent(){
     var name = document.getElementById("name").value;
     var constraints = document.getElementById("nameConstraints");
-    if (name.length > 10){
+
+    const regex1 = /^[a-z|A-Z|가-힣|ㄱ-ㅎ]+$/
+    if (name.length > 10 || name.lenght < 2){
         constraints.innerHTML = "10자 이내이어야 합니다";
         constraints.style.color = "red";
         checkName = 0;
     }
+    else if(!regex1.test(name)){
+        constraints.innerHTML = "한글이나 영어만을 포함 할 수 있습니다";
+        constraints.style.color = "red";
+        checkName = 0;
+    }
     else{
-    constraints.innerHTML = "";
-    checkName = 1;
+        constraints.innerHTML = "";
+        checkName = 1;
     }
 }
+
 function phoneConstraintEvent(){
     var phone = document.getElementById("phone").value;
     var constraints = document.getElementById("phoneConstraints");
@@ -48,6 +58,7 @@ function phoneConstraintEvent(){
         checkPhone = 1;
     }
 }
+
 function modifyPwButtonEvent(){
     location = "resetPwPage.jsp"
 }

@@ -5,8 +5,15 @@ var checkName = 0, checkId = 0, checkIdCheck = 0; checkPw = 0, checkPwCheck = 0,
 function nameConstraintsEvent(){
     var name = document.getElementById("name").value;
     var constraints = document.getElementById("nameConstraints");
-    if (name.length > 10){
+
+    const regex1 = /^[a-z|A-Z|가-힣|ㄱ-ㅎ]+$/
+    if (name.length > 10 || name.lenght < 2){
         constraints.innerHTML = "10자 이내이어야 합니다";
+        constraints.style.color = "red";
+        checkName = 0;
+    }
+    else if(!regex1.test(name)){
+        constraints.innerHTML = "한글이나 영어만을 포함 할 수 있습니다";
         constraints.style.color = "red";
         checkName = 0;
     }
@@ -126,40 +133,27 @@ function phoneConstraintEvent(){
     }
 }
 
-function managerButtonEvent(){
-    document.getElementById("managerButton").style.border = "2px solid #5e5151"
-    document.getElementById("managerButton").style.backgroundColor = "#eb9f9f"
+function positionCheckEvent(name){
 
-    document.getElementById("leaderButton").style.border = "none"
-    document.getElementById("leaderButton").style.backgroundColor = "#f0e5df"
+    var position;
+    if(name == "managerButton"){
+        position = 0;
+    }
+    else if(name == "leaderButton"){
+        position = 1;
+    }
+    else if(name == "staffButton"){
+        position = 2;
+    }
 
-    document.getElementById("staffButton").style.border = "none"
-    document.getElementById("staffButton").style.backgroundColor = "#f0e5df"
-    checkPosition = 1;
-}
+    console.log(position)
+    for(var index = 0; index < 3; index++){
+        document.getElementsByClassName("positionButtons")[index].style.border = "none"
+        document.getElementsByClassName("positionButtons")[index].style.backgroundColor = "#f0e5df"
+    }
 
-function leaderButtonEvent(){
-    document.getElementById("managerButton").style.border = "none"
-    document.getElementById("managerButton").style.backgroundColor = "#f0e5df"
-
-    document.getElementById("leaderButton").style.border =  "2px solid #5e5151"
-    document.getElementById("leaderButton").style.backgroundColor = "#eb9f9f"
-
-    document.getElementById("staffButton").style.border = "none"
-    document.getElementById("staffButton").style.backgroundColor = "#f0e5df"
-    checkPosition = 1;
-}
-
-function staffButtonEvent(){
-    document.getElementById("managerButton").style.border = "none"
-    document.getElementById("managerButton").style.backgroundColor = "#f0e5df"
-
-    document.getElementById("leaderButton").style.border =  "none"
-    document.getElementById("leaderButton").style.backgroundColor = "#f0e5df"
-
-    document.getElementById("staffButton").style.border = "2px solid #5e5151"
-    document.getElementById("staffButton").style.backgroundColor = "#eb9f9f"
-    checkPosition = 1;
+    document.getElementsByClassName("positionButtons")[position].style.border = "2px solid #5e5151"
+    document.getElementsByClassName("positionButtons")[position].style.backgroundColor = "#eb9f9f"
 }
 
 function loginButtonEvent(){

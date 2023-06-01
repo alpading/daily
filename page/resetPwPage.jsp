@@ -21,7 +21,7 @@
                 <div id = "newPwConstraints" class = "constraints"></div>
             </div> 
             <div id = "newPwBottomItem"> 
-                <input type = "password" placeholder= "영어 소문자, 숫자, 특수문자 포함 10 ~ 14자" class = inputs id = "newPw" onchange="newPwConstraintsEvent()">
+                <input type = "password" placeholder= "영어 소문자, 숫자, 특수문자 포함 10 ~ 14자" class = inputs id = "newPw" oninput="newPwConstraintsEvent()">
             </div>
         </div>
         <div id = "newPwCheckBox" class = "resetPwBoxItems">
@@ -29,7 +29,7 @@
                 <div>비밀번호 확인</div>
                 <div id = "newPwCheckConstraints" class = "constraints"></div>
             </div>
-            <input type = "password" class = inputs class = inputs id = "newPwCheck" onchange="newPwCheckEvent()">
+            <input type = "password" class = inputs class = inputs id = "newPwCheck" oninput="newPwCheckEvent()">
         </div>
         <div id = "bottomButtons" class = "resetPwBoxItems">
             <div id = "backButton" onclick = "backButtonEvent()">

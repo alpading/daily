@@ -29,6 +29,7 @@ function newPwConstraintsEvent(){
         checkPw = 1;
     }
 }
+
 function newPwCheckEvent(){
     var pw1 = document.getElementById("newPw").value;
     var pw2 = document.getElementById("newPwCheck").value;
@@ -50,6 +51,7 @@ function newPwCheckEvent(){
 function loginButtonEvent(){
     location = "../index.jsp";
 }
+
 function resetPwButtonEvent(){
     if(checkPw*checkPwCheck == 0){
         alert("빈 값이거나 잘못된 값이 있습니다");

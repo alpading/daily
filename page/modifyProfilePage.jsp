@@ -20,14 +20,14 @@
                 <div>이름</div>
                 <div id = "nameConstraints" class = "constraints"></div>
             </div> 
-            <input type = "text" placeholder="10자 이내" class = inputs id = "name" onchange="nameConstraintsEvent()">
+            <input type = "text" placeholder="한글이나 영어 2 ~ 10자" class = inputs id = "name" oninput="nameConstraintsEvent()">
         </div>
         <div id = "phoneBox" class = "modifyProfileBoxItems">
             <div class = "constraintsBox">
                 <div>전화번호</div>
                 <div id = "phoneConstraints" class = "constraints"></div>
             </div>
-            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" onchange="phoneConstraintEvent()">
+            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" oninput="phoneConstraintEvent()">
         </div>
         <div id = "modifyPwButton" class = "modifyProfileBoxItems" onclick = "modifyPwButtonEvent()">
         비밀번호 변경
@@ -38,6 +38,6 @@
         </div>
     </form>
     <script src = "../js/common.js?"></script>
-    <script src = "../js/modifyProfilePage.js?ss"></script>
+    <script src = "../js/modifyProfilePage.js?s"></script>
 </body>
 </html>

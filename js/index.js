@@ -16,12 +16,15 @@ function loginButtonEvent(){
         location = "./page/schedulerPage.jsp";
     }
 }
+
 function signupButtonEvent(){
     location = "./page/signupPage.jsp"
 }
+
 function findIdButtonEvent(){
     location = "./page/findIdPage.jsp"
 }
+
 function findPwButtonEvent(){
     location = "./page/findPwPage.jsp"
 }

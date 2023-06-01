@@ -108,6 +108,6 @@
     </div>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?sss"></script>
+    <script src = "../js/schedulerPage.js?"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
+    <link rel = "stylesheet" type = "text/css" href = "css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "css/index.css?ss">
 
     <meta charset="UTF-8">
