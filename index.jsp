@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "css/index.css?ss">
 
     <meta charset="UTF-8">
@@ -29,9 +30,7 @@
             <div id = "findIdButton" onclick = "findIdButtonEvent()"> 아이디 찾기</div>
             <div id = "findPwButton" onclick = "findPwButtonEvent()"> 비밀번호 찾기</div>
         </div>
-
     </form>
-
 
     <script src = "js/index.js"></script>
 </body>

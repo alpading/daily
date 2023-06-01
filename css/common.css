@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'GoyangIlsan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'GoyangIlsan';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fadcdb;
+    width: 100%;
+}
+#backImg{
+    padding: 5px 5px;
+    width: 35px;
+    /* text-align: center;
+    background-color: #fadcdb;
+    border: 2px #5e5151 solid; */
+}
+#backButton{
+    display: flex;
+    align-items: center;
+}

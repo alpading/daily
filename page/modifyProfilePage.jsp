@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/modifyProfilePage.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +37,7 @@
             <div id = "modifyProfileButton" onclick="modifyProfileButtonEvent()" > 프로필 수정 </div>
         </div>
     </form>
-
+    <script src = "../js/common.js?"></script>
     <script src = "../js/modifyProfilePage.js?ss"></script>
 </body>
 </html>

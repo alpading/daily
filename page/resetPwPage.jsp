@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/resetPwPage.css?ss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,11 +32,15 @@
             <input type = "password" class = inputs class = inputs id = "newPwCheck" onchange="newPwCheckEvent()">
         </div>
         <div id = "bottomButtons" class = "resetPwBoxItems">
-            <div id = "loginButton" onclick="loginButtonEvent()"> 로그인 </div>
+            <div id = "backButton" onclick = "backButtonEvent()">
+                <img src = "../img/back.png" id = "backImg">
+                이전으로
+            </div>
             <div id = "resetPwButton" onclick="resetPwButtonEvent()"> 비밀번호 재설정 </div>
         </div>
     </form>
 
+    <script src = "../js/common.js"></script>
     <script src = "../js/resetPwPage.js?1"></script>
 </body>
 </html>

@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-    <link rel = "stylesheet" type = "text/css" href = "../css/signupPage.css?d">
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css"> 
+    <link rel = "stylesheet" type = "text/css" href = "../css/signupPage.css?sd">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,11 +60,15 @@
             <div id = "staffButton" class = "positionButtons" onclick = "staffButtonEvent()">사원</div> 
         </div>
         <div id = "bottomButtons" class = "signupBoxItems">
-            <div id = "loginButton" onclick="loginButtonEvent()"> 로그인 </div>
+            <div id = "backButton" onclick = "backButtonEvent()">
+                <img src = "../img/back.png" id = "backImg">
+                이전으로 
+            </div>
             <div id = "signupButton" onclick="signupButtonEvent()" > 회원가입 </div>
         </div>
     </form>
 
-    <script src = "../js/signupPage.js?ss"></script>
+    <script src = "../js/common.js?s"></script>
+    <script src = "../js/signupPage.js?"></script>
 </body>
 </html>

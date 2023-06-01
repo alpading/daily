@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/findIdPage.css?s">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,11 +31,15 @@
         </div>
         <div id = "resultBox" class = "findIdBoxItems"></div>   
         <div id = "bottomButtons" class = "findIdBoxItems">
-            <div id = "loginButton" onclick="loginButtonEvent()"> 로그인 </div>
+            <div id = "backButton" onclick = "backButtonEvent()">
+                <img src = "../img/back.png" id = "backImg">
+                이전으로 
+            </div>
             <div id = "findIdButton" onclick="signupButtonEvent()"> 아이디 찾기 </div>
         </div>
     </form>
 
+    <script src = "../js/common.js"></script>
     <script src = "../js/findIdPage.js"></script>
 </body>
 </html>

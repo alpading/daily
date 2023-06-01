@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?sss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -105,7 +106,8 @@
             </div>
         </div>
     </div>
-    
+
+    <script src = "../js/common.js?"></script>
     <script src = "../js/schedulerPage.js?sss"></script>
 </body>
 </html>

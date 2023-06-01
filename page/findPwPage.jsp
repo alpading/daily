@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
+    <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/findPwPage.css?s">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,11 +39,15 @@
             <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" onchange="phoneConstraintEvent()">
         </div>
         <div id = "bottomButtons" class = "findPwBoxItems">
-            <div id = "loginButton" onclick="loginButtonEvent()"> 로그인 </div>
+            <div id = "backButton" onclick = "backButtonEvent()">
+                <img src = "../img/back.png" id = "backImg">
+                이전으로 
+            </div>
             <div id = "findPwButton" onclick="findPwButtonEvent()"> 비밀번호 재설정 </div>
         </div>
     </form>
 
+    <script src = "../js/common.js"></script>
     <script src = "../js/findPwPage.js"></script>
 </body>
 </html>
