@@ -4,7 +4,7 @@
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?sss">
+    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?ssss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +74,7 @@
         <div class = "scheduleNameBox">
             <div class = scheduleNameLeftBox>
                 <div>일정 이름 :</div>
-                <input type = "text" id = "addScheduleName" class = "scheduleName">
+                <input type = "text" id = "addScheduleName" class = "scheduleName" placeholder= "20자 이내">
             </div>
             <img src = "../img/x.png" class = "x" onclick="closeAddScheduleEvent()">
         </div>
@@ -108,6 +108,6 @@
     </div>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?"></script>
+    <script src = "../js/schedulerPage.js?s"></script>
 </body>
 </html>

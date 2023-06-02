@@ -19,7 +19,7 @@ function idConstraintsEvent(){
         checkId = 0;
     }
     else if(regex2.test(id) + regex3.test(id)){
-        constraints.innerHTML = "영어 소문자 숫자만를 모두 포함해야합니다";
+        constraints.innerHTML = "영어 소문자 숫자를 모두 포함해야합니다";
         constraints.style.color = "red";
         checkId = 0;
     }
@@ -34,8 +34,8 @@ function nameConstraintsEvent(){
     var constraints = document.getElementById("nameConstraints");
 
     const regex1 = /^[a-z|A-Z|가-힣|ㄱ-ㅎ]+$/
-    if (name.length > 10 || name.lenght < 2){
-        constraints.innerHTML = "10자 이내이어야 합니다";
+    if (name.length > 10 || name.length < 2){
+        constraints.innerHTML = "2 ~ 10자 이어야 합니다";
         constraints.style.color = "red";
         checkName = 0;
     }

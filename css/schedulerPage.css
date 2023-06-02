@@ -198,11 +198,11 @@
     align-items: center;
 }
 .scheduleName{
-    width: 200px;
+    width: 400px;
     height: 35px;
     border: 2px solid var(--font-color);
     margin-left: 15px;
-    font-size: 24px;
+    font-size: 20px;
 }
 .x{
     height: 20px;

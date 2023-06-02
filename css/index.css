@@ -1,4 +1,4 @@
-title{
+#title{
     margin-top: 180px;
     font-size: 60px;
     color: var(--font-color);
@@ -20,9 +20,13 @@ title{
     margin: 10px 0px;
 }
 #loginButton{
+    font-size: 24px;
+    border: none;
+    color : var(--font-color);
     padding: 5px 0px;
     text-align: center;
     background-color: var(--button-color);
+    font-family: 'GoyangIlsan';
 }
 #signupButton{
     padding: 5px 0px;

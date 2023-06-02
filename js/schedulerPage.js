@@ -81,6 +81,9 @@ function addScheduleEvent(){
     if(scheduleName.length == 0){
         alert("일정 이름을 입력해주세요")
     }
+    else if(scheduleName.length > 20){
+        alert("일정 이름이 너무 깁니다")
+    }
     else if(scheduleDate == "" || scheduleTime == "")
     {
         alert("날짜 및 시간을 입력해주세요")

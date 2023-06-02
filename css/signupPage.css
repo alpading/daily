@@ -22,6 +22,9 @@
     flex-grow: 1;
 }
 #idCheckButton{
+    font-family: 'GoyangIlsan';
+    font-size: 24px;
+    color: var(--font-color);
     background-color: var(--background-color);
     border: 2px var(--font-color) solid;
     width: 150px;
@@ -34,8 +37,10 @@
     width: 80%;
     margin: 5px 0px;
 }
-
 #signupButton{
+    font-family: 'GoyangIlsan';
+    font-size: 24px;
+    color: var(--font-color);
     padding: 5px 5px;
     text-align: center;
     background-color: var(--background-color);

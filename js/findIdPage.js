@@ -7,8 +7,8 @@ function nameConstraintsEvent(){
     var constraints = document.getElementById("nameConstraints");
 
     const regex1 = /^[a-z|A-Z|가-힣|ㄱ-ㅎ]+$/
-    if (name.length > 10 || name.lenght < 2){
-        constraints.innerHTML = "10자 이내이어야 합니다";
+    if (name.length > 10 || name.length < 2){
+        constraints.innerHTML = "2 ~ 10자 이어야 합니다";
         constraints.style.color = "red";
         checkName = 0;
     }

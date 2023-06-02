@@ -4,7 +4,7 @@
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "css/index.css?ss">
+    <link rel = "stylesheet" type = "text/css" href = "css/index.css?">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
     <h1 id = "title">
         OOO Scheduler
     </h1>
-    <form id = "loginBox">
+    <form id = "loginBox" action = "action/loginAction.jsp">
         <div class = "loginBoxItems">
             <div>아이디</div>
             <input type = "text" id = "id" class = "inputs">
@@ -24,7 +24,7 @@
             <div>비밀번호</div>
             <input type = "password" id = "pw" class = "inputs">
         </div>
-        <div id = "loginButton" class = "loginBoxItems" onclick = "loginButtonEvent()">로그인</div>
+        <input type = "submit" id = "loginButton" class = "loginBoxItems" onclick = "loginButtonEvent()" value = "로그인">
         <div id = "signupButton" class = "loginBoxItems" onclick = "signupButtonEvent()">회원가입</div>
         <div id = "findButtons" class = "loginBoxItems" >
             <div id = "findIdButton" onclick = "findIdButtonEvent()"> 아이디 찾기</div>

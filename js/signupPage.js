@@ -1,14 +1,12 @@
 var checkName = 0, checkId = 0, checkIdCheck = 0; checkPw = 0, checkPwCheck = 0, checkPhone = 0, checkPosition = 0;
 
-
-
 function nameConstraintsEvent(){
     var name = document.getElementById("name").value;
     var constraints = document.getElementById("nameConstraints");
 
     const regex1 = /^[a-z|A-Z|가-힣|ㄱ-ㅎ]+$/
-    if (name.length > 10 || name.lenght < 2){
-        constraints.innerHTML = "10자 이내이어야 합니다";
+    if (name.length > 10 || name.length < 2){
+        constraints.innerHTML = "2 ~ 10자 이어야 합니다";
         constraints.style.color = "red";
         checkName = 0;
     }
@@ -51,15 +49,23 @@ function idConstraintsEvent(){
     }
 }
 
+function idCheckSubmitEvent(){
+    var form = document.getElementById("signupBox");
+    form.action = "../action/idCheckAction.jsp"
+    form.onsubmit = function(){
+        return idCheckEvent()
+    }
+}
+
 function idCheckEvent(){
+
     if(checkId == 0){
         alert("올바른 아이디를 입력하세요")
+        return false;
     }
     else if(checkId == 1)
     {
-        alert("사용가능한 아이디입니다")
-        document.getElementById("idConstraints").innerHTML = "사용가능한 아이디";
-        document.getElementById("idConstraints").style.color = "blue";
+        return true;
     }
 }
 
@@ -134,7 +140,6 @@ function phoneConstraintEvent(){
 }
 
 function positionCheckEvent(name){
-
     var position;
     if(name == "managerButton"){
         position = 0;
@@ -154,18 +159,44 @@ function positionCheckEvent(name){
 
     document.getElementsByClassName("positionButtons")[position].style.border = "2px solid #5e5151"
     document.getElementsByClassName("positionButtons")[position].style.backgroundColor = "#eb9f9f"
+
+    var positionValue = document.createElement("input");
+    var parent = document.getElementById("selectPositionBox");
+    while(parent.lastChild.id == "positionValue"){
+        document.getElementById("selectPositionBox").removeChild(document.getElementById("positionValue"))
+    }
+    positionValue.type = "text";
+    positionValue.value = position;
+    positionValue.style.display = "none";
+    positionValue.name = "positionValue";
+    positionValue.id = "positionValue";
+    parent.appendChild(positionValue);
+
+    alert(document.getElementById("positionValue").value)
+    checkPosition = 1;
 }
 
-function loginButtonEvent(){
-    location = "../index.jsp";
+function signupButtonSubmitEvent(){
+    var form = document.getElementById("signupBox");
+    form.action = "../action/signupAction.jsp"
+    form.onsubmit = function(){
+        return signupButtonEvent()
+    }
 }
 
 function signupButtonEvent(){
     console.log(checkPosition);
     if(checkName*checkId*checkPw*checkPwCheck*checkPhone*checkPosition == 0){
+        console.log(checkName)
+        console.log(checkId)
+        console.log(checkPw)
+        console.log(checkPwCheck)
+        console.log(checkPhone)
+        console.log(checkPosition)
         alert("빈 값이거나 잘못된 값이 있습니다");
+        return false;
     }
     else{
-    location = "../page/schedulerPage.jsp";
+        return true;
     }
 }
