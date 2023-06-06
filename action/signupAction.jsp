@@ -2,6 +2,8 @@
 <%@ page import="java.sql.DriverManager"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.util.ArrayList"%>
 
 <%
     Class.forName("com.mysql.jdbc.Driver");
@@ -22,6 +24,24 @@
     query.setString(5,positionValue);
     
     query.executeUpdate();
+
+    String sql2 = "SELECT * FROM account WHERE id = ?";
+    PreparedStatement query2 = connect.prepareStatement(sql2);
+    query2.setString(1,idValue);
+    ResultSet result = query2.executeQuery();
+
+    ArrayList<String> accountNumList = new ArrayList<String>();
+
+    int length = 0;
+
+    while(result.next()){
+        String accountNum = result.getString(1);
+        accountNumList.add("\"" + accountNum + "\"");
+        length ++;
+    }
+    if (length > 0){
+        session.setAttribute("accountNum",accountNumList.get(0));
+    }
 %>
 
 <!DOCTYPE html>

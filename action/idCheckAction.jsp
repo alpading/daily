@@ -5,10 +5,7 @@
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.util.ArrayList"%>
 
-<!-- 배열 길이 -->
-
 <%
-
     Class.forName("com.mysql.jdbc.Driver");
 
     Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/daily","stageus","0116");
@@ -31,13 +28,30 @@
     ArrayList<String> idValueList = new ArrayList<String>();
     idValueList.add("\"" + idValue + "\"");
 
-    int idCheck = 0;
+    int idCheck = 1;
 
     if(idList.contains("\"" + idValue + "\"")){
-        idCheck = 1;
+        idCheck = 0;
     }
 
     session.setAttribute("idCheck",idCheck);
+
+    String nameValue = request.getParameter("nameValue");
+    String pwValue = request.getParameter("pwValue");
+    String pwCheckValue = request.getParameter("pwCheckValue");
+    String phoneValue = request.getParameter("phoneValue");
+    String positionValue = request.getParameter("positionValue");
+
+    ArrayList<String> signupDataList = new ArrayList<String>();
+    
+    signupDataList.add("\"" + idValue + "\"");
+    signupDataList.add("\"" + nameValue + "\"");
+    signupDataList.add("\"" + pwValue + "\"");
+    signupDataList.add("\"" + pwCheckValue + "\"");
+    signupDataList.add("\"" + phoneValue + "\"");
+    signupDataList.add("\"" + positionValue + "\"");
+
+    session.setAttribute("signupDataList",signupDataList);
 %>
 
 <!DOCTYPE html>

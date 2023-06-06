@@ -47,6 +47,7 @@ function idConstraintsEvent(){
         constraints.innerHTML = "";
         checkId = 1;
     }
+    idCheck = 0;
 }
 
 function idCheckSubmitEvent(){
@@ -116,7 +117,7 @@ function pwCheckEvent(){
     }
 }
 
-function phoneConstraintEvent(){
+function phoneConstraintsEvent(){
     var phone = document.getElementById("phone").value;
     var constraints = document.getElementById("phoneConstraints");
 
@@ -183,13 +184,14 @@ function signupButtonSubmitEvent(){
 }
 
 function signupButtonEvent(){
-    if(checkName*checkId*checkPw*checkPwCheck*checkPhone*checkPosition == 0){
+    if(checkName*checkId*checkPw*checkPwCheck*checkPhone*checkPosition*idCheck == 0){
         console.log(checkName)
         console.log(checkId)
         console.log(checkPw)
         console.log(checkPwCheck)
         console.log(checkPhone)
         console.log(checkPosition)
+        console.log(idCheck)
         alert("빈 값이거나 잘못된 값이 있습니다");
         return false;
     }
@@ -197,3 +199,39 @@ function signupButtonEvent(){
         return true;
     }
 }
+
+function fillDefault(){
+    if(signupDataList[0] != ""){
+        document.getElementById("id").value = signupDataList[0];
+        checkId = 1;
+    }
+    if(signupDataList[1] != ""){
+        document.getElementById("name").value = signupDataList[1];
+        nameConstraintsEvent();
+    }
+    if(signupDataList[2] != ""){
+        document.getElementById("pw").value = signupDataList[2];
+        pwConstraintsEvent();
+    }
+    if(signupDataList[3] != ""){
+        document.getElementById("pwCheck").value = signupDataList[3];
+        pwCheckEvent();
+    }
+    if(signupDataList[4] != ""){
+        document.getElementById("phone").value = signupDataList[4];
+        phoneConstraintsEvent();
+    }
+    
+
+    if(signupDataList[5] == 0){
+        positionCheckEvent("managerButton")
+    }
+    else if(signupDataList[5] == 1){
+        positionCheckEvent("leaderButton")
+    }
+    else if(signupDataList[5] == 2){
+        positionCheckEvent("staffButton")
+    }
+}
+
+fillDefault();

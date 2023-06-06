@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.util.ArrayList"%>
+
 <%
     String idCheck = "" + session.getAttribute("idCheck");
     session.removeAttribute("idCheck");
+    ArrayList<String> signupDataList = (ArrayList)session.getAttribute("signupDataList");
+    session.removeAttribute("signupDataList");
 %>
 
 <!DOCTYPE html>
@@ -48,14 +57,14 @@
                 <div>비밀번호 확인</div>
                 <div id = "pwCheckConstraints" class = "constraints"></div>
             </div>
-            <input type = "password" class = inputs class = inputs id = "pwCheck" oninput="pwCheckEvent()">
+            <input type = "password" class = inputs class = inputs id = "pwCheck" oninput="pwCheckEvent()" name = "pwCheckValue">
         </div>
         <div id = "phoneBox" class = "signupBoxItems">
             <div class = "constraintsBox">
                 <div>전화번호</div>
                 <div id = "phoneConstraints" class = "constraints"></div>
             </div>
-            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" oninput="phoneConstraintEvent()" name = "phoneValue">
+            <input type = "text" placeholder="숫자 11자" class = inputs id = "phone" oninput="phoneConstraintsEvent()" name = "phoneValue">
         </div>
         <div id = "selectPositionBox" class = "signupBoxItems">
             <div id = "position">직급</div>
@@ -72,23 +81,23 @@
         </div>
     </form>
 
-    <script src = "../js/common.js?s"></script>
-    <script src = "../js/signupPage.js?s"></script>
-
     <script>
         var idCheck = <%=idCheck%>;
+        var signupDataList = <%=signupDataList%>;
 
-        if (idCheck == 0){
+        if (idCheck == 1){
             document.getElementById("idConstraints").innerHTML = "사용 가능한 아이디";
             document.getElementById("idConstraints").style.color = "blue";
             alert("사용 가능한 아이디입니다");
         }
-        else if (idCheck == 1){
+        else if (idCheck == 0){
             document.getElementById("idConstraints").innerHTML = "사용 불가능한 아이디";
             document.getElementById("idConstraints").style.color = "red";
             alert("사용 불가능한 아이디입니다");
         }
-
     </script>
+
+    <script src = "../js/common.js?s"></script>
+    <script src = "../js/signupPage.js?s"></script>
 </body>
 </html>
