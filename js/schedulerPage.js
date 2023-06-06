@@ -9,6 +9,13 @@ const staffArr = ['차카타','파하갸','냐댜랴','먀뱌샤','야쟈챠','�
 function menuButtonEvent(){
     document.getElementById("menuButton").style.display = "none";
     document.getElementById("rightNav").style.display = "flex";
+    closeModifyScheduleEvent();
+    closeAddScheduleEvent();
+    if(monthNav == 1){
+        document.getElementById("monthNav").style.display = "none"
+        document.getElementById("downButton").src = "../img/down.png"
+        monthNav = 0;
+    }
 }
 
 function navMenuButtonEvent(){
@@ -35,6 +42,7 @@ function rightButtonEvent(){
 }
 
 function downButtonEvent(){
+    console.log("1")
     if(monthNav == 0){
         document.getElementById("monthNav").style.display = "block"
         document.getElementById("downButton").src = "../img/up.png"
@@ -45,6 +53,9 @@ function downButtonEvent(){
         document.getElementById("downButton").src = "../img/down.png"
         monthNav = 0;
     }
+    closeModifyScheduleEvent();
+    closeAddScheduleEvent();
+    navMenuButtonEvent();
 }
 
 function selectMonthEvent(num){
@@ -57,8 +68,16 @@ function selectMonthEvent(num){
     }
     chosen.style.color = "#eb9f9f";
 }
+
 function openAddScheduleEvent(){
     document.getElementById("addScheduleBox").style.display = "block";
+    closeModifyScheduleEvent();
+    navMenuButtonEvent();
+    if(monthNav == 1){
+        document.getElementById("monthNav").style.display = "none"
+        document.getElementById("downButton").src = "../img/down.png"
+        monthNav = 0;
+    }
 }
 
 function closeAddScheduleEvent(){
@@ -67,6 +86,13 @@ function closeAddScheduleEvent(){
 
 function openModifyScheduleEvent(){
     document.getElementById("modifyScheduleBox").style.display = "block";
+    closeAddScheduleEvent();
+    navMenuButtonEvent();
+    if(monthNav == 1){
+        document.getElementById("monthNav").style.display = "none"
+        document.getElementById("downButton").src = "../img/down.png"
+        monthNav = 0;
+    }
 }
 
 function closeModifyScheduleEvent(){
@@ -183,7 +209,31 @@ function createList(){
     }
 }
 
+console.log(accountData[0]);
+
+function createProfile(){
+    var name = document.getElementById("name")
+    var id = document.getElementById("id")
+    var phone = document.getElementById("phone")
+    var position = document.getElementById("position")
+
+    name.innerHTML = accountData[0];
+    id.innerHTML = accountData[1];
+    phone.innerHTML= accountData[2];
+    // phone.innerHTML = phoneNum.slice(0,2) + "-" + phoneNum.slice(2,6) + "-" + phoneNum.slice(6);
+    if(accountData[3] == 0){
+        position.innerHTML = "관리자";
+    }
+    else if(accountData[3] == "1"){
+        position.innerHTML = "팀장";
+    }
+    else if(accountData[3] == "2"){
+        position.innerHTML = "사원";
+    }
+}
+
 createMonth();
 createList();
+createProfile();
 selectMonthEvent(month);
 document.getElementById("year").innerHTML = year;

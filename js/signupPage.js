@@ -185,7 +185,6 @@ function signupButtonSubmitEvent(){
 }
 
 function signupButtonEvent(){
-    console.log(checkPosition);
     if(checkName*checkId*checkPw*checkPwCheck*checkPhone*checkPosition == 0){
         console.log(checkName)
         console.log(checkId)

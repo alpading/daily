@@ -15,16 +15,16 @@
     <h1 id = "title">
         OOO Scheduler
     </h1>
-    <form id = "loginBox" action = "action/loginAction.jsp">
+    <form id = "loginBox" action = "action/loginAction.jsp" onsubmit = "return loginButtonEvent()">
         <div class = "loginBoxItems">
             <div>아이디</div>
-            <input type = "text" id = "id" class = "inputs">
+            <input type = "text" id = "id" class = "inputs" name = "idValue">
         </div>
         <div class = "loginBoxItems">
             <div>비밀번호</div>
-            <input type = "password" id = "pw" class = "inputs">
+            <input type = "password" id = "pw" class = "inputs" name = "pwValue">
         </div>
-        <input type = "submit" id = "loginButton" class = "loginBoxItems" onclick = "loginButtonEvent()" value = "로그인">
+        <input type = "submit" id = "loginButton" class = "loginBoxItems" value = "로그인">
         <div id = "signupButton" class = "loginBoxItems" onclick = "signupButtonEvent()">회원가입</div>
         <div id = "findButtons" class = "loginBoxItems" >
             <div id = "findIdButton" onclick = "findIdButtonEvent()"> 아이디 찾기</div>
@@ -32,6 +32,6 @@
         </div>
     </form>
 
-    <script src = "js/index.js"></script>
+    <script src = "js/index.js?s"></script>
 </body>
 </html>

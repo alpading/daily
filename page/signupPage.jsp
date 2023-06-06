@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String idCheck = "" + session.getAttribute("idCheck");
+    session.removeAttribute("idCheck");
+%>
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -70,5 +74,21 @@
 
     <script src = "../js/common.js?s"></script>
     <script src = "../js/signupPage.js?s"></script>
+
+    <script>
+        var idCheck = <%=idCheck%>;
+
+        if (idCheck == 0){
+            document.getElementById("idConstraints").innerHTML = "사용 가능한 아이디";
+            document.getElementById("idConstraints").style.color = "blue";
+            alert("사용 가능한 아이디입니다");
+        }
+        else if (idCheck == 1){
+            document.getElementById("idConstraints").innerHTML = "사용 불가능한 아이디";
+            document.getElementById("idConstraints").style.color = "red";
+            alert("사용 불가능한 아이디입니다");
+        }
+
+    </script>
 </body>
 </html>

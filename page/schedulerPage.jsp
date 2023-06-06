@@ -1,10 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.util.ArrayList"%>
+
+<%
+    String accountNum = session.getAttribute("accountNum").toString();
+    Class.forName("com.mysql.jdbc.Driver");
+    
+    Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/daily","stageus","0116");
+
+    String sql = "SELECT * FROM account WHERE account_num = " + accountNum;
+    PreparedStatement query = connect.prepareStatement(sql);
+    ResultSet result = query.executeQuery();
+
+    ArrayList<ArrayList<String>> accountData = new ArrayList<ArrayList<String>>();
+    ArrayList<String> nameList = new ArrayList<String>();
+    ArrayList<String> idList = new ArrayList<String>();
+    ArrayList<String> phoneList = new ArrayList<String>();
+    ArrayList<String> positionList = new ArrayList<String>();
+
+    while(result.next()){
+        String id = result.getString(2);
+        String name = result.getString(4);
+        String phone = result.getString(5);
+        String position = result.getString(6);
+        idList.add("\"" + id + "\"");
+        nameList.add("\"" + name + "\"");
+        phoneList.add("\"" + phone + "\"");
+        positionList.add("\"" + position + "\"");
+    }
+
+    accountData.add(nameList);
+    accountData.add(idList);
+    accountData.add(phoneList);
+    accountData.add(positionList);
+%>
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?ssss">
+    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?ss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,14 +71,14 @@
     <img src = "../img/menu.png" id = "menuButton" onclick= "menuButtonEvent()">
     <div id = "rightNav">
         <img src = "../img/menu.png" id = "navMenuButton" onclick= "navMenuButtonEvent()">
-        <div id = profileBox>
-            <div id = "name" class = "profileItems">최정욱</div>
-            <div id = "id" class = "profileItems">dnrwjd0116</div>
-            <div id = "phone" class = "profileItems">010-2524-6911</div>
-            <div id = "position" class = "profileItems">관리자</div>
+        <form id = profileBox action = "../action/logoutAction.jsp">
+            <div id = "name" class = "profileItems"></div>
+            <div id = "id" class = "profileItems"></div>
+            <div id = "phone" class = "profileItems"></div>
+            <div id = "position" class = "profileItems"></div>
             <div id = "modifyProfileButton" onclick="modifyProfileButtonEvent()">프로필 수정</div>
-            <div id = "logoutButton" onclick="logoutEvent()">로그아웃</div>
-        </div>
+            <input type = "submit" id = "logoutButton" onclick = "logoutEvent()" value = "로그아웃">
+        </form>
         <div id = listBox>
             <div id = "leader">팀장</div>
             <div id = "leaderList" class = "list"></div>
@@ -107,7 +146,14 @@
         </div>
     </div>
 
+    <script>
+        var accountNum = <%= accountNum %>;
+        var accountData = <%=accountData%>;
+        console.log(accountData[0]);
+
+    </script>
+
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?s"></script>
+    <script src = "../js/schedulerPage.js?"></script>
 </body>
 </html>

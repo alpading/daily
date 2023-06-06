@@ -115,8 +115,11 @@
     color: var(--font-color);
 }
 #logoutButton{
+    font-family: 'GoyangIlsan';
     margin: 5px 0px;
     font-size: 18px;
+    border: none;
+    background-color: transparent;
     color: var(--font-color);
 }
 #listBox{

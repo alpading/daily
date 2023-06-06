@@ -33,9 +33,11 @@
 
     int idCheck = 0;
 
-    if(idList.contains(idValue)){
+    if(idList.contains("\"" + idValue + "\"")){
         idCheck = 1;
     }
+
+    session.setAttribute("idCheck",idCheck);
 %>
 
 <!DOCTYPE html>
@@ -50,16 +52,9 @@
     <script>
         var idCheck = <%=idCheck%>;
         var idValue = <%=idValueList%>;
+        var idList = <%=idList%>
 
-        alert(idValue)
-        if (idCheck == 0){
-            alert("사용가능한 아이디입니다")
-        }
-        else if (idCheck == 1){
-            alert("이미 해당 아이디가 존재합니다")
-        }
-        // document.getElementById("idConstraints").innerHTML = "사용가능한 아이디";
-        // document.getElementById("idConstraints").style.color = "blue";
+        location = "../page/signupPage.jsp"
     </script>
 </body>
 </html>

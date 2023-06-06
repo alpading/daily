@@ -5,15 +5,18 @@ function loginButtonEvent(){
     
     if(id.length*pw.length == 0){
         alert('아이디나 비밀번호 중 빈 값이 있습니다')
+        return false;
     }
     else if(id.length > 10){
         alert('아이디는 10자 이내여야 합니다')
+        return false;
     }
     else if(id.length > 14){
         alert('비밀번호는 14자 이내여야 합니다')
+        return false;
     }
     else{
-        location = "./page/schedulerPage.jsp";
+        return true;
     }
 }
 
