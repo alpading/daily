@@ -209,8 +209,6 @@ function createList(){
     }
 }
 
-console.log(accountData[0]);
-
 function createProfile(){
     var name = document.getElementById("name")
     var id = document.getElementById("id")

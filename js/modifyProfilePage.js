@@ -1,4 +1,4 @@
-var checkName = 0, checkPhone = 0;
+var checkName = 1, checkPhone = 1;
 
 function cancleButtonEvent(){
     location = "schedulerPage.jsp"
@@ -8,10 +8,11 @@ function modifyProfileButtonEvent(){
     if(checkName*checkPhone == 0)
     {
         alert("잘못된 값이 있습니다")
+        return false;
     }
     else{
         alert("프로필 수정이 완료되었습니다")
-    location = "schedulerPage.jsp"
+        return true;
     }
 }
 
@@ -62,3 +63,13 @@ function phoneConstraintEvent(){
 function modifyPwButtonEvent(){
     location = "resetPwPage.jsp"
 }
+
+function fillDefault(){
+    var name = document.getElementById("name");
+    var phone = document.getElementById("phone");
+
+    name.value = accountData[0];
+    phone.value = accountData[1];
+}
+
+fillDefault();
