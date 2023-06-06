@@ -171,8 +171,6 @@ function positionCheckEvent(name){
     positionValue.name = "positionValue";
     positionValue.id = "positionValue";
     parent.appendChild(positionValue);
-
-    alert(document.getElementById("positionValue").value)
     checkPosition = 1;
 }
 

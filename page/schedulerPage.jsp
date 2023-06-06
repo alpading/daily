@@ -37,6 +37,43 @@
     accountData.add(idList);
     accountData.add(phoneList);
     accountData.add(positionList);
+
+    // 다른 사원 목록 및 조회
+
+    String sql2 = "SELECT * FROM account WHERE position = '1'"; // 팀장 목록
+    PreparedStatement query2 = connect.prepareStatement(sql2);
+    ResultSet result2 = query2.executeQuery();
+
+    ArrayList<String> leaderAccountNumList = new ArrayList<String>();
+    ArrayList<String> leaderNameList = new ArrayList<String>();
+
+    while(result2.next()){
+        String accountNum2 = result2.getString(1);
+        String name2 = result2.getString(4);
+        leaderAccountNumList.add("\"" + accountNum2 + "\"");
+        leaderNameList.add("\"" + name2 + "\"");
+    }
+
+
+    String sql3 = "SELECT * FROM account WHERE position = '2'"; // 사원 목록
+    PreparedStatement query3 = connect.prepareStatement(sql3);
+    ResultSet result3 = query3.executeQuery();
+
+    ArrayList<String> staffAccountNumList = new ArrayList<String>();
+    ArrayList<String> staffNameList = new ArrayList<String>();
+
+    while(result3.next()){
+        String accountNum3 = result3.getString(1);
+        String name3 = result3.getString(4);
+        staffAccountNumList.add("\"" + accountNum3 + "\"");
+        staffNameList.add("\"" + name3 + "\"");
+    }
+
+    ArrayList<ArrayList<String>> memberList = new ArrayList<ArrayList<String>>();
+    memberList.add(leaderAccountNumList);
+    memberList.add(leaderNameList);
+    memberList.add(staffAccountNumList);
+    memberList.add(staffNameList);
 %>
 
 <!DOCTYPE html>
@@ -149,6 +186,8 @@
     <script>
         var accountNum = <%= accountNum %>;
         var accountData = <%=accountData%>;
+        var memberList = <%=memberList%>;
+        var staffAccountNumList
     </script>
 
     <script src = "../js/common.js?"></script>

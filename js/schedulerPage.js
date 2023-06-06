@@ -1,7 +1,7 @@
 var year = new Date().getFullYear();
 var month = new Date().getMonth();
 var monthNav = 0;
-var scheduleLength = 10;
+var scheduleLength = 2;
 var mySchedulerCheck = 0;
 const leaderArr = ['가나다','라마바','사아자'];
 const staffArr = ['차카타','파하갸','냐댜랴','먀뱌샤','야쟈챠','캬탸퍄','햐거너'];
@@ -186,26 +186,29 @@ function createMonth(){
     document.getElementById("month1").style.color = "#eb9f9f";
 }
 
-function createList(){
-    for(var index = 0; index < leaderArr.length; index++)
+function createLeaderList(){
+    for(var index = 0; index < memberList[1].length; index++)
     {
         var leader = document.createElement("div");
-        leader.innerHTML = leaderArr[index];
-        leader.id = leaderArr[index];
+        leader.innerHTML = memberList[1][index];
+        leader.id = memberList[1][index];
         leader.onclick = function(){
             staffSchedulerEvent(this.id)
         };
         document.getElementById("leaderList").appendChild(leader);
     }
-    for(var index = 0; index < staffArr.length; index++)
+}
+
+function createStaffList(){
+    for(var index = 0; index < memberList[3].length; index++)
     {
-        var leader = document.createElement("div");
-        leader.innerHTML = staffArr[index];
-        leader.id = staffArr[index];
-        leader.onclick = function(){
+        var staff = document.createElement("div");
+        staff.innerHTML = memberList[3][index];
+        staff.id = memberList[3][index];
+        staff.onclick = function(){
             staffSchedulerEvent(this.id)
         };
-        document.getElementById("staffList").appendChild(leader);
+        document.getElementById("staffList").appendChild(staff);
     }
 }
 
@@ -227,6 +230,21 @@ function createProfile(){
     }
     else if(accountData[3] == "2"){
         position.innerHTML = "사원";
+    }
+}
+
+function createList(){
+    if(accountData[3] == 0){
+        createLeaderList();
+        createStaffList();
+    }
+    else if(accountData[3] == 1){
+        createStaffList();
+        document.getElementById("leader").style.display = "none";
+    }
+    else if(accountData[3] == 2){
+        document.getElementById("listBox").style.display = "none";
+        document.getElementById("profileBox").style.marginBottom = "10px";
     }
 }
 
