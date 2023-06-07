@@ -4,7 +4,7 @@
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "../css/resetPwPage.css?ss">
+    <link rel = "stylesheet" type = "text/css" href = "../css/resetPwPage.css?sss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,14 @@
     <h1 id = "title">
         비밀번호 재설정
     </h1>
-    <form id = "resetPwBox">
+    <form id = "resetPwBox" action = "../action/resetPwAction.jsp" onsubmit = "return resetPwButtonEvent()">
         <div id = "newPwBox" class = "resetPwBoxItems">
             <div class = "constraintsBox">
                 <div>새 비밀번호</div>
                 <div id = "newPwConstraints" class = "constraints"></div>
             </div> 
             <div id = "newPwBottomItem"> 
-                <input type = "password" placeholder= "영어 소문자, 숫자, 특수문자 포함 10 ~ 14자" class = inputs id = "newPw" oninput="newPwConstraintsEvent()">
+                <input type = "password" placeholder= "영어 소문자, 숫자, 특수문자 포함 10 ~ 14자" class = inputs id = "newPw" oninput="newPwConstraintsEvent()" name = "pwValue">
             </div>
         </div>
         <div id = "newPwCheckBox" class = "resetPwBoxItems">
@@ -36,11 +36,11 @@
                 <img src = "../img/back.png" id = "backImg">
                 이전으로
             </div>
-            <div id = "resetPwButton" onclick="resetPwButtonEvent()"> 비밀번호 재설정 </div>
+            <input type = "submit" id = "resetPwButton" value = "비밀번호 재설정">
         </div>
     </form>
 
     <script src = "../js/common.js"></script>
-    <script src = "../js/resetPwPage.js?1"></script>
+    <script src = "../js/resetPwPage.js?1s"></script>
 </body>
 </html>

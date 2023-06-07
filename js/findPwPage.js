@@ -79,8 +79,9 @@ function loginButtonEvent(){
 function findPwButtonEvent(){
     if(checkName*checkPhone == 0){
         alert("빈 값이거나 잘못된 값이 있습니다");
+        return false;
     }
     else{
-    location = "../page/resetPwPage.jsp"
+        return true;
     }
 }

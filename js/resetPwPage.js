@@ -48,15 +48,12 @@ function newPwCheckEvent(){
     }
 }
 
-function loginButtonEvent(){
-    location = "../index.jsp";
-}
-
 function resetPwButtonEvent(){
     if(checkPw*checkPwCheck == 0){
         alert("빈 값이거나 잘못된 값이 있습니다");
+        return false;
     }
     else{
-    location = "../page/schedulerPage.jsp";
+        return true;
     }
 }

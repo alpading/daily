@@ -25,6 +25,9 @@
     justify-content: space-between;
 }
 #findPwButton{
+    font-family: "GoyangIlsan";
+    color: var(--font-color);
+    font-size: 24px;
     padding: 5px 5px;
     text-align: center;
     background-color: var(--background-color);
