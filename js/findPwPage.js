@@ -27,7 +27,7 @@ function idConstraintsEvent(){
         constraints.innerHTML = "";
         checkId = 1;
     }
-}
+} 
 
 function nameConstraintsEvent(){
     var name = document.getElementById("name").value;
@@ -84,4 +84,8 @@ function findPwButtonEvent(){
     else{
         return true;
     }
+}
+
+function backButtonEvent(){
+    location = "../index.jsp"
 }

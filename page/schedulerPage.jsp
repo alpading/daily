@@ -70,10 +70,39 @@
     }
 
     ArrayList<ArrayList<String>> memberList = new ArrayList<ArrayList<String>>();
+
     memberList.add(leaderAccountNumList);
     memberList.add(leaderNameList);
     memberList.add(staffAccountNumList);
     memberList.add(staffNameList);
+
+    // 전체 스케줄 조회
+
+    String sql4 = "SELECT * FROM schedule ORDER BY datetime";
+    PreparedStatement query4 = connect.prepareStatement(sql4);
+    ResultSet result4 = query4.executeQuery();
+
+    ArrayList<ArrayList<String>> scheduleList = new ArrayList<ArrayList<String>>();
+    ArrayList<String> scheduleNumList = new ArrayList<String>();
+    ArrayList<String> scheduleAccountNumList = new ArrayList<String>();
+    ArrayList<String> scheduleDateTimeList = new ArrayList<String>();
+    ArrayList<String> scheduleNameList = new ArrayList<String>();
+
+    while(result4.next()){
+        String scheduleNum = result4.getString(1);
+        String scheduleAccountNum = result4.getString(2);
+        String scheduleDateTime = result4.getString(3);
+        String scheduleName = result4.getString(4);
+
+        scheduleNumList.add("\"" + scheduleNum + "\"");
+        scheduleAccountNumList.add("\"" + scheduleAccountNum + "\"");
+        scheduleDateTimeList.add("\"" + scheduleDateTime + "\"");
+        scheduleNameList.add("\"" + scheduleName + "\"");
+    }
+    scheduleList.add(scheduleNumList);
+    scheduleList.add(scheduleAccountNumList);
+    scheduleList.add(scheduleDateTimeList);
+    scheduleList.add(scheduleNameList);
 %>
 
 <!DOCTYPE html>
@@ -130,27 +159,13 @@
         </div>
     </div>
     <div id = schedulerBox>
-        <section id = "scheduleDay1">
-            <div id = "day1" class = "dateNum">1일</div>
-            <section id = "schedule1" class = "schedules">
-                <div id = 'scheduleLeftBox'>
-                    <div id = "schedule1Time" class = "schedulesTime scheduleItems">오전 11:00</div>
-                    <div id = "schedule1Name" class = "schedulesName scheduleItems">회의</div>
-                </div>
-                <div id = "scheduleRightBox">
-                    <div class = "modifyButtons scheduleItems" onclick= "openModifyScheduleEvent()">수정</div>
-                    <div class = "deleteButtons scheduleItems" onclick = "deleteScheduleButtonEvent()">삭제</div>
-                </div>
-            </section>
-            <div id = "line"></div>
-        </section>
     </div>
 
-    <div id = "addScheduleBox">
+    <form id = "addScheduleBox" action = "../action/addScheduleAction.jsp" onsubmit = "return addScheduleEvent()">
         <div class = "scheduleNameBox">
             <div class = scheduleNameLeftBox>
                 <div>일정 이름 :</div>
-                <input type = "text" id = "addScheduleName" class = "scheduleName" placeholder= "20자 이내">
+                <input type = "text" id = "addScheduleName" class = "scheduleName" placeholder= "20자 이내" name = "nameValue">
             </div>
             <img src = "../img/x.png" class = "x" onclick="closeAddScheduleEvent()">
         </div>
@@ -158,13 +173,13 @@
             <div>날짜 및 시간 :</div>
             <div class = "scheduleDateTimeRightBox">
                 <div>
-                    <input type = "date" id = "addScheduleDate" class = "dateTime scheduleDate">
-                    <input type = "time" id = "addScheduleTime" class = "dateTime scheduleTime">
+                    <input type = "date" id = "addScheduleDate" class = "dateTime scheduleDate" name = "dateValue">
+                    <input type = "time" id = "addScheduleTime" class = "dateTime scheduleTime" name = "timeValue">
                 </div>
-                <div id = "addScheduleBoxButton" onclick="addScheduleEvent()"> 일정 추가 </div>
+                <input type = "submit" id = "addScheduleBoxButton" value = "일정 추가">
             </div>
         </div>
-    </div>
+    </form>
 
     <div id = "modifyScheduleBox">
         <div class = "scheduleNameBox">
@@ -187,10 +202,10 @@
         var accountNum = <%= accountNum %>;
         var accountData = <%=accountData%>;
         var memberList = <%=memberList%>;
-        var staffAccountNumList
+        var scheduleList = <%=scheduleList%>;
     </script>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?s"></script>
+    <script src = "../js/schedulerPage.js?"></script>
 </body>
 </html>

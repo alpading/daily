@@ -84,7 +84,7 @@ function closeAddScheduleEvent(){
     document.getElementById("addScheduleBox").style.display = "none";
 }
 
-function openModifyScheduleEvent(){
+function openModifyScheduleEvent(scheduleNum){
     document.getElementById("modifyScheduleBox").style.display = "block";
     closeAddScheduleEvent();
     navMenuButtonEvent();
@@ -106,16 +106,20 @@ function addScheduleEvent(){
 
     if(scheduleName.length == 0){
         alert("일정 이름을 입력해주세요")
+        return false;
     }
     else if(scheduleName.length > 20){
         alert("일정 이름이 너무 깁니다")
+        return false;
     }
     else if(scheduleDate == "" || scheduleTime == "")
     {
         alert("날짜 및 시간을 입력해주세요")
+        return false;
     }
     else{
         closeAddScheduleEvent();
+        return true;
     }
 }
 
@@ -135,7 +139,7 @@ function modifyScheduleEvent(){
     }
 }
 
-function deleteScheduleButtonEvent(){
+function deleteScheduleButtonEvent(scheduleNum){
     var result = confirm("정말 삭제하시겠습니까?")
     if(result){
         alert("일정이 삭제되었습니다")
@@ -250,8 +254,91 @@ function createList(){
     }
 }
 
+function createSchedule(year,month){
+    console.log(scheduleList);
+    console.log(scheduleList[2][0].slice(5,7));
+    var dateCheck;
+    for(var index = 0; index < scheduleList.length; index++){
+        if(scheduleList[2][index].slice(5,7) == String(month).padStart(2, "0") && scheduleList[2][index].slice(0,4) == year){
+            if(dateCheck != scheduleList[2][index].slice(8,10)){
+                var dateNum = document.createElement("div");
+                dateNum.id = "day" + scheduleList[2][index].slice(8,10);
+                dateNum.className = "dateNum";
+                dateNum.innerHTML = parseInt(scheduleList[2][index].slice(8,10)) + "일"
+                document.getElementById("schedulerBox").appendChild(dateNum)
+            }
+
+            dateCheck = scheduleList[2][index].slice(8,10);
+
+            var section = document.createElement("section");
+            section.id = "schedule" + scheduleList[0][index];
+            section.className = "schedules";
+            document.getElementById("schedulerBox").appendChild(section);
+
+
+            var scheduleLeftBox = document.createElement("div");
+            scheduleLeftBox.id = "schedule" + scheduleList[0][index] + "LeftBox";
+            scheduleLeftBox.className = "scheduleLeftBox";
+            document.getElementById("schedule" + scheduleList[0][index]).appendChild(scheduleLeftBox);
+
+            var schedulesTime = document.createElement("div");
+            schedulesTime.id = "schedule" + scheduleList[0][index] + "Time";
+            schedulesTime.className = "schedulesTime";
+            schedulesTime.classList.add("schedulesItems");
+            var time1;
+            var time2
+            if(scheduleList[2][index].slice(11,13) < 12){
+                time1 = "오전";
+                time2 = scheduleList[2][index].slice(11,13);
+                time3 = scheduleList[2][index].slice(14,16);
+            }
+            else{
+                time1 = "오후";
+                time2 = scheduleList[2][index].slice(11,13) - 12;
+                time3 = scheduleList[2][index].slice(14,16);
+            }
+            schedulesTime.innerHTML = time1 + " " + time2 + ":" + time3;
+            document.getElementById("schedule" + scheduleList[0][index] + "LeftBox").appendChild(schedulesTime);
+
+            var schedulesName = document.createElement("div");
+            schedulesName.id = "schedule" + scheduleList[0][index] + "Name";
+            schedulesName.className = "schedulesName";
+            schedulesName.classList.add("schedulesItems");
+            schedulesName.innerHTML = scheduleList[3][index];
+            document.getElementById("schedule" + scheduleList[0][index] + "LeftBox").appendChild(schedulesName);
+        
+            var scheduleRightBox = document.createElement("div");
+            scheduleRightBox.id = "schedule" + scheduleList[0][index] + "RightBox";
+            scheduleRightBox.className = "scheduleRightBox";
+            document.getElementById("schedule" + scheduleList[0][index]).appendChild(scheduleRightBox);
+
+            var modifyButton = document.createElement("div");
+            modifyButton.id = "modifyButton" + scheduleList[0][index];
+            modifyButton.className = "modifyButton";
+            modifyButton.innerHTML = "수정";
+            modifyButton.classList.add("schedulesItems");
+            modifyButton.onclick = function(){ 
+                openModifyScheduleEvent(scheduleList[0][index]);
+            }
+            document.getElementById("schedule" + scheduleList[0][index] + "RightBox").appendChild(modifyButton);
+
+            var deleteButton = document.createElement("div");
+            deleteButton.id = "deleteButton" + scheduleList[0][index];
+            deleteButton.className = "deleteButton";
+            deleteButton.innerHTML = "삭제";
+            deleteButton.classList.add("schedulesItems");
+            deleteButton.onclick = function(){ 
+                deleteScheduleButtonEvent(scheduleList[0][index]);
+            }
+            document.getElementById("schedule" + scheduleList[0][index] + "RightBox").appendChild(deleteButton);
+        }
+    }
+}
+
 createMonth();
 createList();
 createProfile();
 selectMonthEvent(month);
+
+createSchedule(year,month);
 document.getElementById("year").innerHTML = year;

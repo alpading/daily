@@ -57,3 +57,7 @@ function resetPwButtonEvent(){
         return true;
     }
 }
+
+function backButtonEvent(){
+    location = "../page/findPwPage.jsp"
+}
