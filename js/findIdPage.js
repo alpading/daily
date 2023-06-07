@@ -49,16 +49,38 @@ function phoneConstraintEvent(){
 function loginButtonEvent(){
     location = "../index.jsp";
 }
-function signupButtonEvent(){
+
+function findIdButtonEvent(){
     if(checkName*checkPhone == 0){
         alert("빈 값이거나 잘못된 값이 있습니다");
+        return false;
     }
     else{
-    document.getElementById("resultBox").innerHTML = "일치하는 계정이 없습니다";
-    document.getElementById("resultBox").style.color = "red"
-    document.getElementById("resultBox").style.display = "flex"
-    document.getElementById("resultBox").style.alignItems = "center"
-    document.getElementById("resultBox").style.justifyContent = "center"
-    
+        return true;
     }
+}
+
+function backButtonEvent(){
+    location = "../index.jsp;"
+}
+
+function createEvent(){
+    console.log(findId);
+    if (findId == null){
+        document.getElementById("resultBox").innerHTML = "일치하는 계정이 없습니다";
+        document.getElementById("resultBox").style.color = "red";
+        document.getElementById("resultBox").style.display = "flex";
+        document.getElementById("resultBox").style.alignItems = "center";
+        document.getElementById("resultBox").style.justifyContent = "center";
+    }
+    else if (findId != null){
+        document.getElementById("resultBox").innerHTML = "아이디는 " + findId + " 입니다";
+        document.getElementById("resultBox").style.display = "flex";
+        document.getElementById("resultBox").style.alignItems = "center";
+        document.getElementById("resultBox").style.justifyContent = "center";
+    }
+}
+
+if(document.referrer != "http://54.180.115.162:8080/daily/index.jsp;"){
+    createEvent();   
 }

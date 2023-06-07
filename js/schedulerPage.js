@@ -192,6 +192,7 @@ function createLeaderList(){
         var leader = document.createElement("div");
         leader.innerHTML = memberList[1][index];
         leader.id = memberList[1][index];
+        leader.style.textAlign = "center";
         leader.onclick = function(){
             staffSchedulerEvent(this.id)
         };
@@ -205,6 +206,7 @@ function createStaffList(){
         var staff = document.createElement("div");
         staff.innerHTML = memberList[3][index];
         staff.id = memberList[3][index];
+        staff.style.textAlign = "center";
         staff.onclick = function(){
             staffSchedulerEvent(this.id)
         };
