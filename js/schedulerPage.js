@@ -1,5 +1,5 @@
 var year = new Date().getFullYear();
-var month = new Date().getMonth();
+var month = new Date().getMonth() + 1;
 var monthNav = 0;
 var scheduleLength = 2;
 var mySchedulerCheck = 0;
@@ -34,15 +34,16 @@ function logoutEvent(){
 function leftButtonEvent(){
     year--;
     document.getElementById("year").innerHTML = year;
+    createSchedule(year,month,accountNum);
 }
 
 function rightButtonEvent(){
     year++;
     document.getElementById("year").innerHTML = year;
+    createSchedule(year,month,accountNum);
 }
 
 function downButtonEvent(){
-    console.log("1")
     if(monthNav == 0){
         document.getElementById("monthNav").style.display = "block"
         document.getElementById("downButton").src = "../img/up.png"
@@ -67,6 +68,7 @@ function selectMonthEvent(num){
         document.getElementById("month" + (index + 1 )).style.color = "black";
     }
     chosen.style.color = "#eb9f9f";
+    createSchedule(year,month,accountNum);
 }
 
 function openAddScheduleEvent(){
@@ -84,7 +86,8 @@ function closeAddScheduleEvent(){
     document.getElementById("addScheduleBox").style.display = "none";
 }
 
-function openModifyScheduleEvent(scheduleNum){
+function openModifyScheduleEvent(name){
+    console.log(name);
     document.getElementById("modifyScheduleBox").style.display = "block";
     closeAddScheduleEvent();
     navMenuButtonEvent();
@@ -92,6 +95,9 @@ function openModifyScheduleEvent(scheduleNum){
         document.getElementById("monthNav").style.display = "none"
         document.getElementById("downButton").src = "../img/down.png"
         monthNav = 0;
+    }
+    document.getElementById("modifyScheduleBox").onsubmit = function(){
+        return modifyScheduleEvent(name);
     }
 }
 
@@ -123,19 +129,28 @@ function addScheduleEvent(){
     }
 }
 
-function modifyScheduleEvent(){
+function modifyScheduleEvent(name){
     var scheduleName = document.getElementById("modifyScheduleName").value;
     var scheduleTime = document.getElementById("modifyScheduleTime").value;
 
+    console.log(name.slice(12));
     if(scheduleName.length == 0){
         alert("일정 이름을 입력해주세요")
+        return false;
     }
     else if( scheduleTime == "")
     {
         alert("날짜 및 시간을 입력해주세요")
+        return false;
     }
     else{
         closeModifyScheduleEvent();
+        var parameter = document.createElement("input");
+        parameter.value = name.slice(12);
+        parameter.name = "scheduleNumValue";
+        parameter.style.display = "none";
+        document.getElementById("modifyScheduleBox").appendChild(parameter);
+        return true;
     }
 }
 
@@ -254,12 +269,12 @@ function createList(){
     }
 }
 
-function createSchedule(year,month){
-    console.log(scheduleList);
-    console.log(scheduleList[2][0].slice(5,7));
+function createSchedule(year,month,accountNum){
+    document.getElementById("schedulerBox").innerHTML = "";
     var dateCheck;
-    for(var index = 0; index < scheduleList.length; index++){
-        if(scheduleList[2][index].slice(5,7) == String(month).padStart(2, "0") && scheduleList[2][index].slice(0,4) == year){
+    console.log(scheduleList);
+    for(var index = 0; index < scheduleList[0].length; index++){
+        if((scheduleList[2][index].slice(5,7) == String(month).padStart(2, "0")) && (scheduleList[2][index].slice(0,4) == year) && (scheduleList[1][index] == accountNum)){
             if(dateCheck != scheduleList[2][index].slice(8,10)){
                 var dateNum = document.createElement("div");
                 dateNum.id = "day" + scheduleList[2][index].slice(8,10);
@@ -318,7 +333,7 @@ function createSchedule(year,month){
             modifyButton.innerHTML = "수정";
             modifyButton.classList.add("schedulesItems");
             modifyButton.onclick = function(){ 
-                openModifyScheduleEvent(scheduleList[0][index]);
+                openModifyScheduleEvent(this.id);
             }
             document.getElementById("schedule" + scheduleList[0][index] + "RightBox").appendChild(modifyButton);
 
@@ -340,5 +355,5 @@ createList();
 createProfile();
 selectMonthEvent(month);
 
-createSchedule(year,month);
+createSchedule(year,month,accountNum);
 document.getElementById("year").innerHTML = year;

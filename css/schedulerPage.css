@@ -150,7 +150,6 @@
     border-radius: 10px;
     color : var(--font-color);
     font-size: 20px;
-    height: 1000px;
 }
 .dateNum{
     width: 90%;
@@ -252,6 +251,9 @@
     display: none;
 }
 #modifyScheduleBoxButton{
+    font-family: "GoyangIlsan";
+    font-size: 24px;
+    color: var(--font-color);
     background-color: var(--button-color);
     padding: 5px;
     border: 2px solid var(--font-color);
@@ -262,6 +264,9 @@
 }
 .scheduleRightBox{
     display: flex;
+}
+.schedulesTime{
+    width: 100px;
 }
 .schedulesName{
     margin-left: 20px;

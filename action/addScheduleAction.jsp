@@ -13,7 +13,6 @@
 
 
     String accountNum = session.getAttribute("accountNum").toString();
-    // int accountNum = Integer.parseInt(session.getAttribute("accountNum").toString());
 
     Class.forName("com.mysql.jdbc.Driver");
 

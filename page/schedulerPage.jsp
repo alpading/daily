@@ -109,7 +109,7 @@
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?sss">
+    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?ss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -181,22 +181,23 @@
         </div>
     </form>
 
-    <div id = "modifyScheduleBox">
+    <form id = "modifyScheduleBox" action = "../action/modifyScheduleAction.jsp">
         <div class = "scheduleNameBox">
             <div class = scheduleNameLeftBox>
                 <div>일정 이름 :</div>
-                <input type = "text" id = "modifyScheduleName" class = "scheduleName">
+                <input type = "text" id = "modifyScheduleName" class = "scheduleName" name = "nameValue">
             </div>
             <img src = "../img/x.png" class = "x" onclick="closeModifyScheduleEvent()">
         </div>
         <div class = "scheduleDateTimeBox">
-            <div>시간 :</div>
+            <div>날짜 및 시간:</div>
             <div class = "scheduleDateTimeRightBox">
-                    <input type = "time" id = "modifyScheduleTime" class = "dateTime scheduleTime">
-                <div id = "modifyScheduleBoxButton" onclick="modifyScheduleEvent()"> 일정 수정 </div>
+                <input type = "date" id = "modifyScheduleDate" class = "dateTime scheduleDate" name = "dateValue">
+                <input type = "time" id = "modifyScheduleTime" class = "dateTime scheduleTime" name = "timeValue">
+                <input type = "submit" id = "modifyScheduleBoxButton" value = "일정 수정">
             </div>
         </div>
-    </div>
+    </form>
 
     <script>
         var accountNum = <%= accountNum %>;
@@ -206,6 +207,6 @@
     </script>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?"></script>
+    <script src = "../js/schedulerPage.js?sss"></script>
 </body>
 </html>
