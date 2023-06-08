@@ -275,5 +275,11 @@
     margin: 0px 5px;
 }
 .deleteButton{
+    font-size: 20px;
+    font-family: "GoyangIlsan";
+    color: var(--font-color);
+    border: none;
+    background-color: transparent;
     margin: 0px 5px;
+    padding: 0px;
 }

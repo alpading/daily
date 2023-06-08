@@ -109,7 +109,7 @@
 <html lang="kr">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "../css/common.css">
-    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?ss">
+    <link rel = "stylesheet" type = "text/css" href = "../css/schedulerPage.css?sss">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,6 +207,6 @@
     </script>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?sss"></script>
+    <script src = "../js/schedulerPage.js?s"></script>
 </body>
 </html>
