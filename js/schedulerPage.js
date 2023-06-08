@@ -4,6 +4,7 @@ var monthNav = 0;
 var mySchedulerCheck = 0;
 var readAccountNum = accountNum;
 var showingScheduleLength = 0;
+var now = new Date();
 
 function menuButtonEvent(){
     document.getElementById("menuButton").style.display = "none";
@@ -79,6 +80,8 @@ function openAddScheduleEvent(){
         document.getElementById("downButton").src = "../img/down.png"
         monthNav = 0;
     }
+    document.getElementById("addScheduleDate").value = now.toISOString().slice(0,10);
+    document.getElementById("addScheduleTime").value = now.toString().slice(16,21);
 }
 
 function closeAddScheduleEvent(){
@@ -339,6 +342,10 @@ function createSchedule(year,month,accountNum){
             schedulesName.className = "schedulesName";
             schedulesName.classList.add("schedulesItems");
             schedulesName.innerHTML = scheduleList[3][index];
+            console.log(scheduleList[2][index])
+            if(scheduleList[2][index] < now.toISOString()){
+                schedulesName.style.textDecoration = "line-through";
+            }
             document.getElementById("schedule" + scheduleList[0][index] + "LeftBox").appendChild(schedulesName);
         
             var scheduleRightBox = document.createElement("form");
@@ -376,6 +383,7 @@ function createSchedule(year,month,accountNum){
     }
 }
 
+console.log(now);
 createMonth();
 createList();
 createProfile();

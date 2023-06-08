@@ -207,6 +207,6 @@
     </script>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?s"></script>
+    <script src = "../js/schedulerPage.js?ss"></script>
 </body>
 </html>
