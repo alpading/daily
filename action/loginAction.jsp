@@ -22,18 +22,37 @@
     ResultSet result = query.executeQuery();
 
     int check = 0;
+    
+    ArrayList<String> nameList = new ArrayList<String>();
+    ArrayList<String> idList = new ArrayList<String>();
 
-    ArrayList<String> accountNumList = new ArrayList<String>();
+    ArrayList<Integer> accountNumList = new ArrayList<Integer>();
+    ArrayList<Integer> phoneList = new ArrayList<Integer>();
+    ArrayList<Integer> positionList = new ArrayList<Integer>();
     
     int length = 0;
-
+    
     while(result.next()){
-        String accountNum = result.getString(1);
-        accountNumList.add("\"" + accountNum + "\"");
-        length ++;
+        int accountNum = result.getInt(1);
+        String id = result.getString(2);
+        String name = result.getString(4);
+        int phone = result.getInt(5);
+        int position = result.getInt(6);
+
+        accountNumList.add(accountNum);
+        idList.add("\"" + id + "\"");
+        nameList.add("\"" + name + "\"");
+        phoneList.add(phone);
+        positionList.add(position);
+        length++;
     }
+       
     if (length > 0){
         session.setAttribute("accountNum",accountNumList.get(0));
+        session.setAttribute("phone",phoneList.get(0));
+        session.setAttribute("position",positionList.get(0));
+        session.setAttribute("name",nameList.get(0));
+        session.setAttribute("id",idList.get(0));
     }
 %>
 

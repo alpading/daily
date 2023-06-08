@@ -27,7 +27,6 @@
     query.setString(3,scheduleNumValue);
 
     query.executeUpdate();
-    
 %>
 
 <!DOCTYPE html>

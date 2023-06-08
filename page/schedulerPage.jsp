@@ -7,38 +7,19 @@
 <%@ page import="java.util.ArrayList"%>
 
 <%
-    String accountNum = session.getAttribute("accountNum").toString();
+    int accountNum = Integer.parseInt(session.getAttribute("accountNum").toString());
+    int phone = Integer.parseInt(session.getAttribute("phone").toString());
+    int position = Integer.parseInt(session.getAttribute("position").toString());
+
+    String name = session.getAttribute("name").toString();
+    String id = session.getAttribute("id").toString();
+
     Class.forName("com.mysql.jdbc.Driver");
-    
+
     Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/daily","stageus","0116");
 
-    String sql = "SELECT * FROM account WHERE account_num = " + accountNum;
-    PreparedStatement query = connect.prepareStatement(sql);
-    ResultSet result = query.executeQuery();
 
-    ArrayList<ArrayList<String>> accountData = new ArrayList<ArrayList<String>>();
-    ArrayList<String> nameList = new ArrayList<String>();
-    ArrayList<String> idList = new ArrayList<String>();
-    ArrayList<String> phoneList = new ArrayList<String>();
-    ArrayList<String> positionList = new ArrayList<String>();
-
-    while(result.next()){
-        String id = result.getString(2);
-        String name = result.getString(4);
-        String phone = result.getString(5);
-        String position = result.getString(6);
-        idList.add("\"" + id + "\"");
-        nameList.add("\"" + name + "\"");
-        phoneList.add("\"" + phone + "\"");
-        positionList.add("\"" + position + "\"");
-    }
-
-    accountData.add(nameList);
-    accountData.add(idList);
-    accountData.add(phoneList);
-    accountData.add(positionList);
-
-    // 다른 사원 목록 및 조회
+    // 다른 사원 목록 조회
 
     String sql2 = "SELECT * FROM account WHERE position = '1'"; // 팀장 목록
     PreparedStatement query2 = connect.prepareStatement(sql2);
@@ -201,12 +182,11 @@
 
     <script>
         var accountNum = <%= accountNum %>;
-        var accountData = <%=accountData%>;
         var memberList = <%=memberList%>;
         var scheduleList = <%=scheduleList%>;
     </script>
 
     <script src = "../js/common.js?"></script>
-    <script src = "../js/schedulerPage.js?ss"></script>
+    <script src = "../js/schedulerPage.js?"></script>
 </body>
 </html>

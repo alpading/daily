@@ -161,7 +161,7 @@ function deleteScheduleButtonEvent(name){
     if(result){
         alert("일정이 삭제되었습니다")
         var parameter = document.createElement("input");
-        parameter.value = name.slice(8,9);
+        parameter.value = name.slice(8);
         parameter.name = "scheduleNumValue";
         parameter.style.display = "none";
         document.getElementById(name).appendChild(parameter);
